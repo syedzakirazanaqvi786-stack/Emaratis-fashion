@@ -1,0 +1,19 @@
+{
+  "name": "emaratis-fashion",
+  "version": "1.0.0",
+  "description": "Ultra-Luxury Haute Couture Website with 360-Degree Dress Viewer for Emaratis Fashion",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "keywords": [
+    "haute-couture",
+    "fashion",
+    "luxury",
+    "360-viewer",
+    "ecommerce"
+  ],
+  "author": "Emaratis Fashion Atelier",
+  "license": "UNLICENSED"
+}

@@ -1,0 +1,689 @@
+/* ==========================================================================
+   EMARATIS FASHION - ULTRA-LUXURY HAUTE COUTURE STYLESHEET
+   Aesthetics: Deep Obsidian-Noir (#0A0A0C), Warm Champagne Gold Glow (#D4AF37),
+   Ultra-Fine Borders (#2A2A30 / #222226), Glassmorphic Dashboard,
+   Dynamic Bubble Hover & Magnetic Cursor, High-Visibility Luxury Scrollbar.
+   ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;800;900&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,600&family=Montserrat:wght@200;300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,900;1,400;1,600&display=swap');
+
+:root {
+  --bg-obsidian: #0A0A0C;
+  --bg-surface: #0E0E12;
+  --bg-surface-elevated: #14141A;
+  --bg-card: rgba(14, 14, 18, 0.72);
+  --border-nav: #222226;
+  --border-fine: #2A2A30;
+  --track-slate: #1E1E24;
+  --gold-primary: #D4AF37;
+  --gold-light: #F4E095;
+  --gold-dark: #8E7322;
+  --gold-glow: rgba(212, 175, 55, 0.22);
+  --gold-halo: rgba(212, 175, 55, 0.12);
+  --off-white: #E5E5E5;
+  --white-pure: #FFFFFF;
+  --font-serif: 'Playfair Display', 'Cormorant Garamond', Georgia, serif;
+  --font-heading: 'Cinzel', 'Playfair Display', serif;
+  --font-body: 'Montserrat', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+/* ==========================================================================
+   4. HIGH-VISIBILITY LUXURY SIDE SCROLLBAR
+   Track: Low-opacity dark slate line (#1E1E24)
+   Thumb: Brushed champagne gold (#D4AF37) with subtle neon edge glow
+   Hover: Brightens on scroll interaction for seamless visual feedback
+   ========================================================================== */
+::-webkit-scrollbar {
+  width: 7px;
+  height: 7px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0A0A0C;
+  border-left: 1px solid #1E1E24;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #F4E095 0%, #D4AF37 50%, #997D25 100%);
+  border-radius: 9999px;
+  border: 1px solid rgba(212, 175, 55, 0.65);
+  box-shadow: 0 0 10px rgba(212, 175, 55, 0.75), inset 0 0 3px rgba(255, 245, 210, 0.7);
+  transition: all 0.25s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #FFFFFF 0%, #F4E095 35%, #D4AF37 100%);
+  border-color: #FFFFFF;
+  box-shadow: 0 0 18px rgba(212, 175, 55, 1), 0 0 6px rgba(255, 255, 255, 0.8), inset 0 0 5px rgba(255, 255, 255, 0.9);
+}
+
+/* Firefox Support */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #D4AF37 #1E1E24;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* Hide default operating system cursor everywhere on non-touch devices */
+@media (pointer: fine) {
+  *, *::before, *::after, html, body, a, button, select, input, textarea {
+    cursor: none !important;
+  }
+}
+
+/* Prevent accidental text selection and caret insertion anywhere outside text inputs */
+body, section, div, h1, h2, h3, h4, h5, h6, p, span, a, button, li, ul, label {
+  -webkit-user-select: none !important;
+  -moz-user-select: none !important;
+  -ms-user-select: none !important;
+  user-select: none !important;
+  caret-color: transparent !important;
+}
+
+input, textarea {
+  -webkit-user-select: text !important;
+  user-select: text !important;
+  caret-color: #D4AF37 !important;
+}
+
+/* Selection */
+::selection {
+  background: rgba(212, 175, 55, 0.38);
+  color: #FFFFFF;
+}
+
+body {
+  background-color: var(--bg-obsidian);
+  color: var(--off-white);
+  font-family: var(--font-body);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ==========================================================================
+   1. BACKGROUND COLOR & ATMOSPHERE
+   - Deep obsidian-noir (#0A0A0C) background with a smooth radial vignette.
+   - Subtle warm champagne gold (#D4AF37) ambient glow accents in corners.
+   - Minimal dark mode aesthetic with ultra-fine, low-opacity borders (#2A2A30).
+   ========================================================================== */
+.glamorous-bg {
+  background-color: #0A0A0C;
+  background-image: 
+    radial-gradient(circle at 50% -10%, rgba(212, 175, 55, 0.08) 0%, transparent 60%),
+    radial-gradient(circle at 92% 18%, rgba(212, 175, 55, 0.06) 0%, transparent 45%),
+    radial-gradient(circle at 8% 85%, rgba(212, 175, 55, 0.05) 0%, transparent 45%),
+    radial-gradient(circle at 85% 95%, rgba(180, 130, 40, 0.04) 0%, transparent 40%);
+  background-attachment: fixed;
+  position: relative;
+}
+
+/* Subtle Vignette Edge Overlay */
+.glamorous-bg::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(circle at center, transparent 60%, rgba(4, 4, 6, 0.65) 100%);
+  z-index: 1;
+}
+
+/* Typography Utility Classes */
+.font-cinzel {
+  font-family: 'Cinzel', serif;
+}
+.font-serif-luxury {
+  font-family: 'Playfair Display', 'Cormorant Garamond', serif;
+}
+.font-body-sans {
+  font-family: 'Montserrat', sans-serif;
+}
+
+/* Gold Text Gradients */
+.gold-gradient-text {
+  background: linear-gradient(135deg, #FFF5D0 0%, #D4AF37 50%, #B38814 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.gold-gradient-text-subtle {
+  background: linear-gradient(135deg, #FFFFFF 0%, #F5E8C7 50%, #D4AF37 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.gold-divider {
+  height: 1px;
+  background: linear-gradient(90deg, transparent 0%, rgba(212, 175, 55, 0.5) 50%, transparent 100%);
+}
+
+/* ==========================================================================
+   2. TOP NAVIGATION & DASHBOARD BAR
+   - Sleek glassmorphic header with subtle backdrop-blur and 1px border (#222226)
+   ========================================================================== */
+.glass-header {
+  background: rgba(10, 10, 12, 0.65);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border-bottom: 1px solid var(--border-nav);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.6);
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.glass-header.scrolled {
+  background: rgba(8, 8, 10, 0.92);
+  border-bottom: 1px solid rgba(212, 175, 55, 0.25);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.85), 0 0 25px rgba(212, 175, 55, 0.08);
+}
+
+/* Navigation Links Style */
+.nav-link-item {
+  position: relative;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.26em;
+  text-transform: uppercase;
+  color: var(--off-white);
+  padding: 8px 14px;
+  border-radius: 9999px;
+  transition: color 0.3s cubic-bezier(0.16, 1, 0.3, 1), transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  display: inline-block;
+  z-index: 2;
+}
+
+.nav-link-item:hover {
+  color: #FFFFFF;
+}
+
+/* ==========================================================================
+   3. INTERACTIVE BUBBLE HOVER & CURSOR STATE
+   - Dynamic Floating Bubble Effect: Soft translucent frosted-glass bubble/pill
+     with champagne gold aura animating smoothly into place behind hovered items.
+   - Magnetic Cursor Response: 1.05x smooth scale and micro-glow.
+   ========================================================================== */
+
+/* Sliding Navbar Frosted Glass Bubble Pill */
+.nav-bubble-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.nav-hover-bubble {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  border-radius: 9999px;
+  background: rgba(212, 175, 55, 0.08);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(212, 175, 55, 0.35);
+  box-shadow: 0 0 22px rgba(212, 175, 55, 0.22), inset 0 0 10px rgba(212, 175, 55, 0.1);
+  pointer-events: none;
+  opacity: 0;
+  transform: scale(0.92);
+  transition: transform 0.32s cubic-bezier(0.16, 1, 0.3, 1), 
+              width 0.32s cubic-bezier(0.16, 1, 0.3, 1), 
+              left 0.32s cubic-bezier(0.16, 1, 0.3, 1), 
+              top 0.32s cubic-bezier(0.16, 1, 0.3, 1), 
+              opacity 0.25s ease;
+  z-index: 1;
+}
+
+/* Interactive Bubble for Dashboard Icons and Standalone Buttons */
+.interactive-bubble {
+  position: relative;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), 
+              border-color 0.3s ease, 
+              box-shadow 0.3s ease,
+              color 0.3s ease;
+}
+
+.interactive-bubble::before {
+  content: '';
+  position: absolute;
+  inset: -3px;
+  border-radius: 9999px;
+  background: rgba(212, 175, 55, 0.08);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(212, 175, 55, 0.35);
+  box-shadow: 0 0 20px rgba(212, 175, 55, 0.22), inset 0 0 8px rgba(212, 175, 55, 0.1);
+  opacity: 0;
+  transform: scale(0.85);
+  transition: opacity 0.3s cubic-bezier(0.16, 1, 0.3, 1), transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  pointer-events: none;
+  z-index: -1;
+}
+
+.interactive-bubble:hover {
+  transform: scale(1.05);
+  color: #FFFFFF;
+}
+
+.interactive-bubble:hover::before {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* Magnetic Hover Scale */
+.magnetic-hover {
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease;
+}
+
+.magnetic-hover:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 25px rgba(212, 175, 55, 0.25);
+}
+
+/* Luxury Single Goal Nishan Cursor (100% Accurate, Instant Zero-Lag Tracking) */
+.luxury-cursor-ring {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 26px;
+  height: 26px;
+  margin-top: -13px;
+  margin-left: -13px;
+  border: 1.5px solid #D4AF37;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 1000000;
+  background: radial-gradient(circle, rgba(212, 175, 55, 0.22) 0%, rgba(212, 175, 55, 0.04) 50%, transparent 75%);
+  box-shadow: 0 0 14px rgba(212, 175, 55, 0.5), inset 0 0 5px rgba(212, 175, 55, 0.2);
+  will-change: transform;
+  transform-origin: center center;
+  transition: border-color 0.15s ease, background-color 0.15s ease, box-shadow 0.15s ease, opacity 0.2s ease;
+}
+
+/* Micro center reticle for pinpoint clicking accuracy */
+.luxury-cursor-ring::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 3px;
+  height: 3px;
+  margin-top: -1.5px;
+  margin-left: -1.5px;
+  background-color: #FFFFFF;
+  border-radius: 50%;
+  box-shadow: 0 0 4px #D4AF37;
+}
+
+.luxury-cursor-ring.active {
+  border-color: #FFF0B8;
+  background: radial-gradient(circle, rgba(212, 175, 55, 0.35) 0%, rgba(212, 175, 55, 0.08) 60%, transparent 80%);
+  box-shadow: 0 0 24px rgba(212, 175, 55, 0.8), inset 0 0 8px rgba(212, 175, 55, 0.3);
+}
+
+.luxury-cursor-ring.clicking {
+  border-color: #FFFFFF;
+  box-shadow: 0 0 28px rgba(255, 255, 255, 0.95), 0 0 10px #D4AF37;
+}
+
+.luxury-cursor-ring.drag-mode {
+  border-color: #D4AF37;
+  background: rgba(10, 10, 14, 0.85);
+  box-shadow: 0 0 22px rgba(212, 175, 55, 0.65);
+}
+
+@media (pointer: coarse) {
+  .luxury-cursor-ring {
+    display: none !important;
+  }
+}
+
+/* Shake Animation for Invalid Admin Password */
+@keyframes shakeBox {
+  0%, 100% { transform: translateX(0); }
+  20%, 60% { transform: translateX(-8px); }
+  40%, 80% { transform: translateX(8px); }
+}
+
+.animate-shake {
+  animation: shakeBox 0.45s ease-in-out;
+}
+
+/* Ultra-Fine Border Classes */
+.border-fine {
+  border-color: var(--border-fine) !important;
+}
+
+.border-nav {
+  border-color: var(--border-nav) !important;
+}
+
+/* Ultra-Thin 1px Line Icons Utility */
+.icon-thin {
+  stroke-width: 1.25px;
+  stroke: currentColor;
+  fill: none;
+}
+
+/* Glass Panels */
+.glass-panel {
+  background: var(--bg-card);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--border-fine);
+}
+
+.glass-panel-gold {
+  background: rgba(14, 12, 9, 0.75);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(212, 175, 55, 0.28);
+}
+
+/* Borderless 360 Viewer Canvas Wrapper */
+.viewer-360-hero-wrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+  touch-action: none;
+  cursor: grab;
+  user-select: none;
+}
+
+.viewer-360-hero-wrapper:active {
+  cursor: grabbing;
+}
+
+.viewer-360-hero-wrapper.zoomed {
+  cursor: zoom-out;
+}
+
+/* Custom 360 Range Slider */
+input[type="range"].slider-360 {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 3px;
+  background: #1E1E24;
+  border-radius: 2px;
+  outline: none;
+  transition: all 0.2s ease;
+}
+
+input[type="range"].slider-360:hover {
+  background: rgba(212, 175, 55, 0.4);
+}
+
+input[type="range"].slider-360::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: #D4AF37;
+  cursor: pointer;
+  box-shadow: 0 0 12px rgba(212, 175, 55, 0.7);
+  border: 2px solid #0A0A0C;
+  transition: transform 0.15s ease, background-color 0.15s ease;
+}
+
+input[type="range"].slider-360::-webkit-slider-thumb:hover {
+  transform: scale(1.3);
+  background: #FFF5D0;
+  box-shadow: 0 0 18px rgba(212, 175, 55, 0.95);
+}
+
+input[type="range"].slider-360::-moz-range-thumb {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: #D4AF37;
+  cursor: pointer;
+  box-shadow: 0 0 12px rgba(212, 175, 55, 0.7);
+  border: 2px solid #0A0A0C;
+}
+
+/* Haute Couture Custom Buttons */
+.btn-luxury-primary {
+  background: linear-gradient(135deg, #D4AF37 0%, #B89224 100%);
+  color: #050505;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 4px 20px rgba(212, 175, 55, 0.25);
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-luxury-primary::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+  transition: left 0.7s ease;
+}
+
+.btn-luxury-primary:hover::before {
+  left: 100%;
+}
+
+.btn-luxury-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 32px rgba(212, 175, 55, 0.45);
+  background: linear-gradient(135deg, #F0CF65 0%, #D4AF37 100%);
+}
+
+.btn-luxury-secondary {
+  background: rgba(14, 14, 18, 0.7);
+  color: #F4E095;
+  border: 1px solid rgba(212, 175, 55, 0.35);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.btn-luxury-secondary:hover {
+  background: rgba(212, 175, 55, 0.15);
+  border-color: #D4AF37;
+  color: #FFFFFF;
+  box-shadow: 0 0 24px rgba(212, 175, 55, 0.22);
+  transform: translateY(-2px);
+}
+
+/* Crisp Pure White Scroll Down Indicator */
+.white-scroll-cue {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  color: #FFFFFF;
+  text-decoration: none;
+  cursor: pointer;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.white-scroll-cue:hover {
+  transform: translateY(3px);
+}
+
+.white-mouse-icon {
+  width: 22px;
+  height: 36px;
+  border: 2px solid #FFFFFF;
+  border-radius: 12px;
+  position: relative;
+  box-shadow: 0 0 14px rgba(255, 255, 255, 0.35);
+}
+
+.white-mouse-wheel {
+  width: 3px;
+  height: 7px;
+  background-color: #FFFFFF;
+  border-radius: 2px;
+  position: absolute;
+  top: 6px;
+  left: 50%;
+  transform: translateX(-50%);
+  animation: whiteMouseScroll 2s infinite ease-in-out;
+}
+
+@keyframes whiteMouseScroll {
+  0% {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+  60% {
+    opacity: 0.2;
+    transform: translateX(-50%) translateY(12px);
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(-50%) translateY(16px);
+  }
+}
+
+.white-scroll-text {
+  font-family: 'Cinzel', serif;
+  font-size: 10px;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: #FFFFFF;
+  font-weight: 500;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.4);
+}
+
+/* Floating WhatsApp Live Chat Concierge */
+.whatsapp-floating-widget {
+  position: fixed;
+  bottom: 28px;
+  right: 28px;
+  z-index: 45;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s ease;
+}
+
+.whatsapp-floating-widget:hover {
+  transform: translateY(-4px) scale(1.03);
+}
+
+.whatsapp-chat-bubble {
+  background: rgba(10, 10, 12, 0.85);
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(212, 175, 55, 0.35);
+  padding: 8px 14px;
+  border-radius: 9999px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.whatsapp-btn-circle {
+  width: 54px;
+  height: 54px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #FFFFFF;
+  box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4), 0 0 0 0 rgba(37, 211, 102, 0.5);
+  animation: pulseWhatsapp 2.8s infinite;
+}
+
+@keyframes pulseWhatsapp {
+  0% {
+    box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4), 0 0 0 0 rgba(37, 211, 102, 0.6);
+  }
+  70% {
+    box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4), 0 0 0 16px rgba(37, 211, 102, 0);
+  }
+  100% {
+    box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4), 0 0 0 0 rgba(37, 211, 102, 0);
+  }
+}
+
+/* Silky Scroll Sliding Reveal Effects */
+.reveal-init {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.85s cubic-bezier(0.16, 1, 0.3, 1), transform 0.85s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+.reveal-init.slide-left {
+  transform: translateX(-40px);
+}
+
+.reveal-init.slide-right {
+  transform: translateX(40px);
+}
+
+.reveal-init.revealed {
+  opacity: 1;
+  transform: translateY(0) translateX(0);
+}
+
+.delay-100 { transition-delay: 100ms; }
+.delay-200 { transition-delay: 200ms; }
+.delay-300 { transition-delay: 300ms; }
+.delay-400 { transition-delay: 400ms; }
+.delay-500 { transition-delay: 500ms; }
+
+/* Lookbook Card Hover Zoom */
+.lookbook-card {
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.5s ease;
+}
+
+.lookbook-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.85), 0 0 25px rgba(212, 175, 55, 0.18);
+}
+
+.lookbook-image-zoom {
+  transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.lookbook-card:hover .lookbook-image-zoom {
+  transform: scale(1.06);
+}
+
+/* Accordion Smooth Height */
+.accordion-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s ease;
+  opacity: 0;
+}
+
+.accordion-item.active .accordion-content {
+  max-height: 800px;
+  opacity: 1;
+}
+
+.accordion-item.active .accordion-icon {
+  transform: rotate(180deg);
+}
+
+/* Rotating 360 Badge Animation */
+@keyframes spinBadge {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.animate-spin-slow {
+  animation: spinBadge 24s linear infinite;
+}
+
+/* Toast Notification */
+#toastNotification {
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
